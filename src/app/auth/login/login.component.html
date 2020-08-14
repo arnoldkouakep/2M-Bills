@@ -1,0 +1,190 @@
+<div class="container" style="text-align: center;font-size: 15px;">
+  <div class="row" style="justify-content:center; margin: 7% 0 2% 0;">
+    <div class="col-12 col-sm-11 col-md-6 z-depth-2" style="background-color: #fff; padding-bottom: 15px;">
+      <div class="profile-img-card" id="profile-img">
+                  <span style="font-family: Sans-Serif;font-size: 34px;font-weight: bold;">
+                      <span class="title-text-start">2M</span> <B><i> - </i></B>
+                      <span class="title-text-end">Bills</span>
+                  </span>
+      </div>
+
+      <span (click)="backClicked()" *ngIf="showBackButton" class="arrow-left">
+                   <fa-icon [icon]="faArrowLeft"></fa-icon>
+                    <span>Retour</span>
+              </span>
+
+      <div *ngIf="showExpireSessionAlert" class="expired-session">
+        <span class="alert-content">Votre session a expirée - connectez vous à nouveau</span>
+        <span (click)="showExpireSessionAlert = false" class="close-alert">x</span>
+      </div>
+
+      <div *ngIf="showOtpResetPaswordForm" class="expired-session">
+        <span class="alert-content">Renseignez le code que vous avez reçu par mail</span>
+      </div>
+
+      <div *ngIf="showForgottenPasswordForm" class="expired-session">
+        <span class="alert-content">Entrer votre adresse email pour recevoir un code d'activation</span>
+      </div>
+
+      <div *ngIf="showResetPaswordForm" class="expired-session" style="padding: 4px; font-weight: bolder;">
+        <span class="alert-content">Votre nouveau mot de passe doit etre d'au moins 6 caractères, contenir au moins un chiffre et au moins une lettre</span>
+      </div>
+
+      <div class="col-12 col-md-12 login-box-background"></div>
+
+      <div class="row" style="justify-content: center">
+        <div class="col-11 col-md-11" style="padding-bottom: 15%;">
+          <!-- login form -->
+          <form (ngSubmit)="onSubmit()" *ngIf="showLoginForm" [formGroup]="loginForm" class="form-inline z-depth-1-half"
+                id="login">
+            <div class="md-form form-group">
+              <fa-icon [icon]="faUser" class="prefix"></fa-icon>
+              <label for="username"></label>
+              <input [ngClass]="{ 'is-invalid': submitted && f.username.errors }" class="form-control"
+                     data-cy="emailForm" formControlName="username" id="username" mdbValidate
+                     placeholder="Nom Utilisateur" required type="text"/>
+              <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                <div *ngIf="f.username.errors.required" class="error-message" data-cy="errorUsername">Le nom utilisateur
+                  est requis
+                </div>
+              </div>
+            </div>
+            <div class="md-form form-group">
+              <fa-icon [icon]="faLock" class="prefix"></fa-icon>
+              <label for="password"></label>
+              <input [ngClass]="{ 'is-invalid': submitted && f.password.errors }" class="form-control"
+                     data-cy="passwordForm"
+                     formControlName="password" id="password" mdbValidate
+                     placeholder="Mot de passe" type="password"/>
+              <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required" class="error-message" data-cy="errorPassword">Le mot de passe
+                  est requis
+                </div>
+              </div>
+            </div>
+            <div class="md-form form-group" style="justify-content: center; margin-bottom: 20px;">
+              <button [disabled]="isLoading" class="waves-light btn-login" data-cy="connexionButton" id="loginButton"
+                      mdbBtn mdbWavesEffect>
+                Connexion
+                <div *ngIf="isLoading" class="spinner-container">
+                  <svg class="spinner" height="25px" viewBox="0 0 66 66" width="25px"
+                       xmlns="http://www.w3.org/2000/svg">
+                    <circle class="path" cx="33" cy="33" fill="none" r="30" stroke-linecap="round" stroke-width="6">
+                    </circle>
+                  </svg>
+                </div>
+              </button>
+            </div>
+          </form>
+          <!-- form to provide reset email address -->
+          <form (ngSubmit)="forgottenPasswordSubmit()" *ngIf="showForgottenPasswordForm"
+                [formGroup]="forgottenPasswordForm" class="form-inline z-depth-1-half" id="login">
+            <div class="md-form form-group">
+              <fa-icon [icon]="faEnvelope" class="prefix"></fa-icon>
+              <label for="email"></label>
+              <input [ngClass]="{ 'is-invalid': submitted && ff.email.errors }" class="form-control"
+                     formControlName="email" id="email" mdbValidate
+                     placeholder="Adresse Email" required type="email"/>
+              <div *ngIf="submitted && ff.email.errors" class="invalid-feedback">
+                <div *ngIf="ff.email.errors.required" class="error-message">L'adresse email est requis</div>
+              </div>
+            </div>
+            <div class="md-form form-group" style="justify-content: center; margin-bottom: 20px;">
+              <button [disabled]="isLoading" class="waves-light btn-login" id="loginButton" mdbBtn mdbWavesEffect>
+                Recevoir le code d'activation
+                <div *ngIf="isLoading" class="spinner-container">
+                  <svg class="spinner" height="25px" viewBox="0 0 66 66" width="25px"
+                       xmlns="http://www.w3.org/2000/svg">
+                    <circle class="path" cx="33" cy="33" fill="none" r="30" stroke-linecap="round" stroke-width="6">
+                    </circle>
+                  </svg>
+                </div>
+              </button>
+            </div>
+          </form>
+          <!-- form to provide otp receive by email -->
+          <form (ngSubmit)="otpSubmit()" *ngIf="showOtpResetPaswordForm" [formGroup]="otpForm"
+                class="form-inline z-depth-1-half" id="login">
+            <div class="md-form form-group">
+              <fa-icon [icon]="faLock" class="prefix"></fa-icon>
+              <label for="otp">Entrer votre code d'activation</label>
+              <input [ngClass]="{ 'is-invalid': submitted && fOtp.otp.errors }" class="form-control"
+                     formControlName="otp" id="otp" mdbValidate
+                     required type="password"/>
+              <div *ngIf="submitted && fOtp.otp.errors" class="invalid-feedback">
+                <div *ngIf="fOtp.otp.errors.required" class="error-message">Ce champ est requis</div>
+              </div>
+            </div>
+            <div class="md-form form-group" style="justify-content: center; margin-bottom: 20px;">
+              <button [disabled]="isLoading" class="waves-light btn-login" id="loginButton" mdbBtn mdbWavesEffect>
+                Confirmer
+                <div *ngIf="isLoading" class="spinner-container">
+                  <svg class="spinner" height="25px" viewBox="0 0 66 66" width="25px"
+                       xmlns="http://www.w3.org/2000/svg">
+                    <circle class="path" cx="33" cy="33" fill="none" r="30" stroke-linecap="round" stroke-width="6">
+                    </circle>
+                  </svg>
+                </div>
+              </button>
+            </div>
+          </form>
+          <!-- form to provide new password -->
+          <form (ngSubmit)="resetPasswordSubmit()" *ngIf="showResetPaswordForm" [formGroup]="resetPasswordForm"
+                class="form-inline z-depth-1-half">
+            <div class="md-form form-group">
+              <fa-icon [icon]="faLock" class="prefix"></fa-icon>
+              <label for="newPassword">Entrer le nouveau mot de passe</label>
+              <input [ngClass]="{ 'is-invalid': submitted && fResetPassword.newPassword.errors }" class="form-control"
+                     formControlName="newPassword" id="newPassword" mdbValidate
+                     required type="password"/>
+              <div *ngIf="submitted && fResetPassword.newPassword.errors" class="invalid-feedback">
+                <div *ngIf="fResetPassword.newPassword.errors.required" class="error-message">Ce champ est requis</div>
+              </div>
+            </div>
+            <div class="md-form form-group">
+              <fa-icon [icon]="faLock" class="prefix"></fa-icon>
+              <label for="confirmPassword">Confirmer ce mot de passe</label>
+              <input [ngClass]="{ 'is-invalid': submitted && fResetPassword.confirmPassword.errors }"
+                     class="form-control" formControlName="confirmPassword" id="confirmPassword" mdbValidate
+                     required type="password"/>
+              <div *ngIf="submitted && fResetPassword.confirmPassword.errors" class="invalid-feedback">
+                <div *ngIf="fResetPassword.confirmPassword.errors.required" class="error-message">Ce champ est requis
+                </div>
+              </div>
+            </div>
+            <div class="md-form form-group" style="justify-content: center; margin-bottom: 20px;">
+              <button [disabled]="isLoading" class="waves-light btn-login" id="loginButton" mdbBtn mdbWavesEffect>
+                Reinitialiser
+                <div *ngIf="isLoading" class="spinner-container">
+                  <svg class="spinner" height="25px" viewBox="0 0 66 66" width="25px"
+                       xmlns="http://www.w3.org/2000/svg">
+                    <circle class="path" cx="33" cy="33" fill="none" r="30" stroke-linecap="round" stroke-width="6">
+                    </circle>
+                  </svg>
+                </div>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <span class="forgotten-password">
+        <a *ngIf="showForgottenPasswordForm" routerLink="/login">Se connecter</a>
+        <a *ngIf="showLoginForm" routerLink="/login/forgotten-password">Mot de passe Oublié?</a>
+      </span>
+    </div>
+  </div>
+</div>
+<div *ngIf="showLoader" class="login-page-backdrop">
+  <div class="loading" style="margin: 0; padding-top: 40vh;">
+    <span style="font-family: Sans-Serif;font-size: 40px; font-weight: bold; margin-bottom: 12px;">
+                <span style="color: #000;">2M</span> <b><i> - </i></b>
+                <span style="color: #e2001a;margin-left: 0px;">Bills</span>
+            </span>
+    <div style="justify-content: center;">
+      <div class="loading-bar"></div>
+      <div class="loading-bar"></div>
+      <div class="loading-bar"></div>
+      <div class="loading-bar"></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,801 @@
+/* You can add global styles to this file, and also import other style files */
+
+// loader style
+// Here is where the magic happens
+.main {
+  margin: 60px 0 0 16em;
+  padding-top: 20px;
+  padding-left: 5px;
+  transition: margin-left .5s;
+}
+
+@media screen and (max-width: 1000px) {
+  .main {
+    margin: 60px 0 0 0;
+  }
+}
+
+label {
+  font-size: 14px !important;
+}
+
+.form-control {
+  font-size: 15px;
+}
+
+// end loader style
+
+// table loader
+.loader {
+  font-size: 4px;
+  margin: 5px auto;
+  text-indent: -9999em;
+  width: 11em;
+  height: 11em;
+  border-radius: 50%;
+  background: #d86464;
+  background: -moz-linear-gradient(left, #d86464 10%, rgba(255, 255, 255, 0) 42%);
+  background: -webkit-linear-gradient(left, #d86464 10%, rgba(255, 255, 255, 0) 42%);
+  background: -o-linear-gradient(left, #d86464 10%, rgba(255, 255, 255, 0) 42%);
+  background: -ms-linear-gradient(left, #d86464 10%, rgba(255, 255, 255, 0) 42%);
+  background: linear-gradient(to right, #d86464 10%, rgba(255, 255, 255, 0) 42%);
+  position: relative;
+  -webkit-animation: load3 1.4s infinite linear;
+  animation: load3 1.4s infinite linear;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+.loader:before {
+  width: 50%;
+  height: 50%;
+  background: #d86464;
+  border-radius: 100% 0 0 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '';
+}
+
+.loader:after {
+  background: #eee;
+  width: 75%;
+  height: 75%;
+  border-radius: 50%;
+  content: '';
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+@-webkit-keyframes load3 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes load3 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.is-visible {
+  display: none;
+}
+
+.ngx-pagination {
+  padding-left: 0;
+}
+
+td {
+  font-weight: bolder !important;
+}
+
+.modal {
+  overflow: auto !important;
+}
+
+@media(min-width: 992px) {
+  .modal-dialog {
+    max-width: 800px !important;
+  }
+}
+
+.table input {
+  margin: 0;
+  padding: 0;
+}
+
+tbody tr {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 1px solid #fff !important;
+}
+
+// Nav tabs
+.nav-tabs, .nav-tabs2 {
+  display: flex;
+  width: 100%;
+  background-color: gainsboro;
+  text-align: center;
+  border: 1px solid gainsboro;
+
+  span {
+    padding: 2px 15px 0 0;
+    font-weight: bolder;
+    cursor: pointer;
+    width: 50%;
+    font-size: 15px;
+
+    &:hover {
+      background-color: #e8e8e8;
+      font-weight: bold;
+    }
+  }
+
+  .active, .active2 {
+    color: #4285f4;
+    border-bottom: 3px solid #4285f4;
+    padding-bottom: 7px;
+    background-color: #fff;
+    font-weight: bold;
+  }
+}
+
+table {
+  background-color: #fff;
+}
+
+.table {
+  box-shadow: 1px 2px 5px 1px gray !important;
+  background-color: #fff !important;
+  margin-bottom: 0 !important;
+
+  thead tr {
+    color: #2d2d2d;
+    background-color: #dee0e4 !important;
+    font-weight: bold;
+  }
+}
+
+.content, .content2 {
+  display: none;
+}
+
+.visibled, .visibled2 {
+  display: block;
+}
+
+.confirm-change {
+  background-color: #1e8e1e;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  margin-right: 5px;
+  padding: 3px;
+  border-radius: 3px;
+
+  img {
+    width: 16px;
+  }
+}
+
+.discard-change {
+  background-color: #f72323;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  padding: 3px;
+  border-radius: 3px;
+
+  img {
+    width: 16px;
+  }
+}
+
+.edit-data {
+  background-color: #5a95f5;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  padding: 6px;
+  border-radius: 3px;
+
+  img {
+    width: 16px;
+  }
+}
+
+.show-data {
+  background-color: #5a95f5;
+  padding: 3px;
+  border-radius: 3px;
+  margin: 2px;
+
+  img {
+    width: 16px;
+  }
+}
+
+.table {
+  box-shadow: 1px 2px 5px 1px gray !important;
+  background-color: #fff !important;
+
+  thead tr {
+    color: #2d2d2d;
+    background-color: #dee0e4 !important;
+    font-weight: bold;
+  }
+}
+
+// muti select
+.custom-class-example {
+  color: #000;
+}
+
+.custom-class-example .c-token {
+  background: #38d574 !important;
+}
+
+.custom-class-example .pure-checkbox label::before {
+  border: 1px solid #38d574 !important;
+}
+
+.custom-class-example .pure-checkbox input[type="checkbox"]:checked + label[_ngcontent-c1]:before {
+  background: #38d574 !important;
+}
+
+.ng2-smart-action-custom-custom {
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+.collect {
+  width: 85%;
+}
+
+// tooltip1
+.wrapper {
+  display: flex;
+  background: #5a95f5;
+  cursor: pointer;
+  color: #fff !important;
+  text-decoration: none !important;
+  font-size: 12.5px;
+  margin: 0;
+  padding: 3px;
+  position: relative;
+  text-align: center;
+  border-radius: 3px;
+  // -webkit-transform: translateZ(0);
+  /* webkit flicker fix */
+  -webkit-font-smoothing: antialiased;
+  /* webkit text rendering fix */
+  img {
+    width: 20px;
+  }
+
+  &:hover {
+    background-color: #1496bb;
+  }
+}
+
+.wrapper .tooltip1 {
+  background: #fff;
+  bottom: 100%;
+  color: #000;
+  display: block; //to active tooltip1
+  right: -30px;
+  margin-bottom: 5px;
+  opacity: 0;
+  padding: 3px;
+  pointer-events: none;
+  position: absolute;
+  width: 60px;
+  -webkit-transform: translateY(10px);
+  -moz-transform: translateY(10px);
+  -ms-transform: translateY(10px);
+  -o-transform: translateY(10px);
+  transform: translateY(10px);
+  -webkit-transition: all .25s ease-out;
+  -moz-transition: all .25s ease-out;
+  -ms-transition: all .25s ease-out;
+  -o-transition: all .25s ease-out;
+  transition: all .25s ease-out;
+  -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+  -moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+  -ms-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+  -o-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+}
+
+/* This bridges the gap so you can mouse into the tooltip1 without it disappearing */
+.wrapper .tooltip1:before {
+  bottom: -20px;
+  content: " ";
+  display: block;
+  height: 20px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+
+/* CSS Triangles - see Trevor's post */
+.wrapper .tooltip1:after {
+  border-left: solid transparent 10px;
+  border-right: solid transparent 10px;
+  border-top: solid #fff 10px;
+  bottom: -10px;
+  content: " ";
+  height: 0;
+  left: 50%;
+  margin-left: -13px;
+  position: absolute;
+  width: 0;
+}
+
+.wrapper:hover .tooltip1 {
+  opacity: 1;
+  pointer-events: auto;
+  -webkit-transform: translateY(0px);
+  -moz-transform: translateY(0px);
+  -ms-transform: translateY(0px);
+  -o-transform: translateY(0px);
+  transform: translateY(0px);
+}
+
+/* IE can just show/hide with no transition */
+.lte8 .wrapper .tooltip1 {
+  display: none;
+}
+
+.lte8 .wrapper:hover .tooltip1 {
+  display: block;
+}
+
+table thead th {
+  font-size: .875em;
+  margin: 0;
+  padding: 3px 0 !important;
+}
+
+.ng2-smart-filter input {
+  width: 95% !important;
+  line-height: normal;
+  padding: 0 0 0 2px !important;
+  font-weight: 400 !important;
+  height: 30px;
+}
+
+.collect-table {
+  box-shadow: 1px 1px 10px 1px #cfcfcf !important;
+}
+
+.ng2-smart-actions {
+  padding: 5px 2px !important;
+}
+
+// select box
+// Variables
+$border-color: rgba(0, 0, 0, .54);
+$checked-color: #3f51b5;
+
+// Checkbox
+.checkbox {
+  display: inline-block;
+  position: relative;
+  margin: 0 0 10px;
+  font-size: 16px;
+  line-height: 24px;
+
+  &__input {
+    position: absolute;
+    top: 4px;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    opacity: 0;
+    z-index: 0;
+  }
+
+  // Unchecked
+  &__label {
+    display: block;
+    padding: 0 0 0 24px;
+    cursor: pointer;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 4px;
+      left: 0;
+      width: 16px;
+      height: 16px;
+      background-color: transparent;
+      border: 2px solid $border-color;
+      border-radius: 2px;
+      z-index: 1;
+      transition: all .28s cubic-bezier(.4, 0, .2, 1);
+      transition-property: background-color, border-color;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      width: 6px;
+      height: 12px;
+      border-bottom: 2px solid transparent;
+      border-right: 2px solid transparent;
+      transform: rotate(45deg);
+      z-index: 2;
+      transition: border-color .28s cubic-bezier(.4, 0, .2, 1);
+    }
+  }
+
+  // Checked
+  &__input:checked + &__label {
+    &:before {
+      background-color: $checked-color;
+      border-color: $checked-color;
+    }
+
+    &:after {
+      border-color: #fff;
+    }
+  }
+
+  // Focused
+  // Uncomment for accessible outline
+  // &__input:focus + &__label {
+  //     &:before {
+  //         outline: 1px dotted currentColor;
+  //     }
+  // }
+}
+
+// select box
+.wrap {
+  width: 100%;
+  padding: 10px;
+}
+
+/* select starting stylings ------------------------------*/
+.select-branch {
+  //   font-family:
+  //     'Roboto', 'Helvetica', 'Arial', sans-serif;
+  position: relative;
+  width: 100%;
+}
+
+.select-text {
+  position: relative;
+  font-family: inherit;
+  background-color: transparent;
+  width: 100%;
+  padding: 15px 10px 1px 0;
+  font-size: 15px;
+  border-radius: 0;
+  border: none;
+  color: #495057;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+/* Remove focus */
+.select-text:focus {
+  outline: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0);
+}
+
+/* Use custom arrow */
+.select-branch .select-text {
+  appearance: none;
+  -webkit-appearance: none
+}
+
+.select-branch:after {
+  position: absolute;
+  top: 18px;
+  right: 10px;
+  /* Styling the down arrow */
+  width: 0;
+  height: 0;
+  padding: 0;
+  content: '';
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid rgba(0, 0, 0, 0.12);
+  pointer-events: none;
+}
+
+
+/* LABEL ======================================= */
+.select-label {
+  color: #757575;
+  font-size: 15px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 0;
+  top: 10px;
+  transition: 0.2s ease all;
+}
+
+/* active state */
+.select-text:focus ~ .select-label,
+.select-text:valid ~ .select-label {
+  top: 0px;
+  transition: 0.2s ease all;
+  font-size: 14px;
+}
+
+/* BOTTOM BARS ================================= */
+.select-bar {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.select-bar:before,
+.select-bar:after {
+  content: '';
+  height: 2px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  background: #2F80ED;
+  transition: 0.2s ease all;
+}
+
+.select-bar:before {
+  left: 50%;
+}
+
+.select-bar:after {
+  right: 50%;
+}
+
+/* active state */
+.select-text:focus ~ .select-bar:before,
+.select-text:focus ~ .select-bar:after {
+  width: 50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.select-highlight {
+  position: absolute;
+  height: 60%;
+  width: 100px;
+  top: 25%;
+  left: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.text-success {
+  display: none;
+}
+
+.cuppa-dropdown {
+  padding-bottom: 10px !important;
+}
+
+.c-btn {
+  padding: 7px !important;
+}
+
+.custom-modal {
+  max-width: 600px !important;
+}
+
+.tooltip-arrow {
+  border-bottom: 7px solid #fff;
+}
+
+.tooltip-inner {
+  color: #000;
+  background-color: #fff;
+}
+
+tr {
+  cursor: default;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.03);
+    color: rgb(17, 2, 71)
+  }
+}
+
+.failed-status {
+  color: #f44646;
+  font-weight: bold;
+}
+
+.success-status {
+  color: #30c836;
+  font-weight: bold;
+}
+
+.not-processed-status {
+  color: #3576c6;
+  font-weight: bold;
+}
+
+.solvent {
+  color: #30c836;
+  font-weight: bold !important;
+}
+
+
+.insolvent {
+  color: #f44646;
+  font-weight: bold !important;
+}
+
+.close-modal {
+  color: #33425b;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 1;
+  font-weight: bold;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0 11px;
+
+  &:hover {
+    border-radius: 50%;
+    background-color: #eee;
+  }
+}
+
+// validation button loader style
+// Here is where the magic happens
+
+.spinner-container {
+  $offset: 187;
+  $duration: 1.4s;
+  text-align: center;
+  padding-top: 20px;
+  // display: none;
+  margin: auto;
+  position: absolute;
+  z-index: 1;
+  top: -12px;
+  right: 0;
+
+  .spinner {
+    animation: rotator $duration linear infinite;
+    width: 100%;
+  }
+
+  @keyframes rotator {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(270deg);
+    }
+  }
+
+  .path {
+    stroke-dasharray: $offset;
+    stroke-dashoffset: 0;
+    transform-origin: center;
+    animation: dash $duration ease-in-out infinite,
+    colors ($duration*4) ease-in-out infinite;
+  }
+
+  @keyframes colors {
+    0% {
+      stroke: #ffffff;
+    }
+
+    25% {
+      stroke: #ffffff;
+    }
+
+    50% {
+      stroke: #ffffff;
+    }
+
+    75% {
+      stroke: #ffffff;
+    }
+
+    100% {
+      stroke: #ffffff;
+    }
+  }
+
+  // @keyframes colors {
+  //     0% {
+  //         stroke: #4285F4;
+  //     }
+
+  //     25% {
+  //         stroke: #DE3E35;
+  //     }
+
+  //     50% {
+  //         stroke: #F7C223;
+  //     }
+
+  //     75% {
+  //         stroke: #1B9A59;
+  //     }
+
+  //     100% {
+  //         stroke: #4285F4;
+  //     }
+  // }
+
+  @keyframes dash {
+    0% {
+      stroke-dashoffset: $offset;
+    }
+
+    50% {
+      stroke-dashoffset: $offset/4;
+      transform: rotate(135deg);
+    }
+
+    100% {
+      stroke-dashoffset: $offset;
+      transform: rotate(450deg);
+    }
+  }
+}
+
+.btn-save {
+  background-color: #8b7195;
+  position: relative;
+
+  .spinner-container {
+    padding-top: 8px;
+    right: -5px;
+  }
+
+  .spinner {
+    width: 50%;
+  }
+}
+
+ng2-st-tbody-custom {
+  display: flex;
+}
+
+//end validation button spinner
+
+
+.counter-danger, .is-invalid {
+  border-bottom: 1px solid #F44336 !important;
+  // box-shadow: 0 1px 0 0 #F44336 !important;
+}
+
+.counter-success {
+  border-bottom: 1px solid #00c851 !important;
+  // box-shadow: 0 1px 0 0 #00c851 !important;
+}
+
+.inputVal {
+  display: none;
+}
+
+.error-message {
+  height: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+}

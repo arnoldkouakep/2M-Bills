@@ -1,0 +1,80 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top">
+  <span class="navbar-brand" style="position: relative;margin: 0;">
+    <div (click)="showSideBar()" class="sidebar-collapse z-depth-1">
+      <fa-icon [icon]="direction"></fa-icon>
+    </div>
+        <div style="height:33px; width: 258px;">
+          <fa-icon [icon]="faBars" class="fa-bars"></fa-icon>
+          <a [routerLink]="['/']"
+             style="font-family: Sans-Serif;font-size: 23px; position: absolute; top: -6px; left: 5px;font-weight: bold;">
+            <span style="color: #353232;">2M</span><b><i> - </i></b>
+            <span style="color: #e2001a;">Bills</span>
+          </a>
+        </div>
+  </span>
+
+  <div class="responsive-icons">
+    <ul class="navbar-nav nav-flex-icons">
+      <li style="padding-top: 20px;position: relative;">
+        <fa-icon [icon]="faSearch"></fa-icon>
+      </li>
+      <li style="padding-top: 20px;position: relative;">
+        <fa-icon [icon]="faBell"></fa-icon>
+        <span class="notifications">2</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="navbar-collapse-content" id="navbarSupportedContent">
+    <span style="font-weight: bold;font-size: 20px;padding-left: 11px;position: absolute;top: 20px; color: #4e4c4c;">
+      {{ message }}
+    </span>
+    <!-- <form class="navbar-nav form-inline waves-light"
+     mdbWavesEffect>
+     <fa-icon [icon]='faSearch' class="search-icon"></fa-icon>
+     <input class="search-bar" type="text" placeholder="Recherche..." style="width: 100%;">
+   </form> -->
+    <ul class="navbar-nav nav-flex-icons">
+      <li style="padding-top: 14px;position: relative;">
+        <div class="select">
+          <select #langSelect (change)="translate.use(langSelect.value)" id="slct" name="slct">
+            <option *ngFor="let lang of translate.getLangs()" [selected]="lang === translate.currentLang"
+                    [value]="lang">{{ lang | uppercase }}</option>
+          </select>
+        </div>
+
+        <!-- <select class="custom-select custom-select-sm" id="lang">
+          <option value="en">
+            EN
+          </option>
+          <option value="fr">
+            <img src="../../../../assets/images/france-flag-icon.png" alt="" srcset="">
+            FR
+          </option>
+        </select> -->
+      </li>
+      <li style="padding-top: 20px;position: relative;">
+        <fa-icon [icon]="faBell"></fa-icon>
+        <span class="notifications">2</span>
+      </li>
+      <!--      <li style="width: 37%; position: relative;">-->
+      <!--      </li>-->
+      <li class="nav-item dropdown btn-group" dropdown>
+        <a class="nav-link dropdown-toggle waves-effect waves-light" dropdownToggle mdbWavesEffect type="button">
+          <img alt="Profile" src="../assets/images/icon-profile.png" style="width: 30px;">
+          <!--          <fa-icon [icon]="faEllipsisV"></fa-icon>-->
+        </a>
+        <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+          <a class="dropdown-item waves-light" mdbWavesEffect routerLink="/user-parameters">
+            <fa-icon [icon]="faCog" class="cog"></fa-icon>
+            Mon Profil</a>
+          <div class="divider dropdown-divider"></div>
+          <span (click)="logout()" class="dropdown-item waves-light" mdbWavesEffect style="cursor: pointer;">
+            <fa-icon [icon]="faSignOutAlt" class="sign-out"></fa-icon>
+            Deconnexion
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,220 @@
+<div class="main">
+  <div class="container">
+    <div class="container">
+      <div class="row justify-content-center">
+        <form (ngSubmit)="onSubmit()" [formGroup]="clientForm" id="newCollector"
+              style="position: relative; width: 100%;padding: 0 30px 10px 30px;background-color: #eee;">
+          <fieldset>
+            <legend>Identification</legend>
+
+            <!--            <div style="display: flex; width: 100%;">-->
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="code">Code *</label>
+
+              <div class="col-sm-4  form-inline waves-light" mdbWavesEffect>
+                <!--                <a>-->
+                <!--                  <fa-icon [icon]='faSearch' class="search-icon"></fa-icon>-->
+                <!--                </a>-->
+                <!--                (click)="addTelephone('')"-->
+                <button (click)="search()" class="waves-light" mdbBtn mdbTooltip="Rechercher / Modifier"
+                        mdbWavesEffect placement="right" style="margin: auto; padding: 0px 3px 0px 0px"
+                        type="button">
+                  <fa-icon [icon]='faSearch' class="ml-1"></fa-icon>
+                </button>
+                <input [ngClass]="{ 'is-invalid': submitted && f.code.errors }" class="search-bar form-control"
+                       data-cy="codeInput" formControlName="code" id="code"
+                       mdbValidate required
+                       type="text">
+                <div *ngIf="submitted && f.code.errors" class="invalid-feedback">
+                  <div *ngIf="f.code.errors.required" class="error-message">Champ obligatoire</div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="firstName">Nom *</label>
+              <div class="col-sm-4">
+                <input [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" class="form-control"
+                       data-cy="firstNameInput" formControlName="firstName"
+                       id="firstName"
+                       mdbValidate required
+                       type="text">
+                <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                  <div *ngIf="f.firstName.errors.required" class="error-message">Champ obligatoire</div>
+                </div>
+              </div>
+              <label class="col-sm-2 col-form-label" for="lastName">Prenom</label>
+              <div class="col-sm-4">
+                <input class="form-control" data-cy="lastNameInput" formControlName="lastName" id="lastName" mdbValidate
+                       type="text">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="numeroCni">N° CNI *</label>
+              <div class="col-sm-4">
+                <input [ngClass]="{ 'is-invalid': submitted && f.numeroCni.errors }" class="form-control"
+                       data-cy="numeroCniInput" formControlName="numeroCni"
+                       id="numeroCni"
+                       mdbValidate required
+                       type="text">
+                <div *ngIf="submitted && f.numeroCni.errors" class="invalid-feedback">
+                  <div *ngIf="f.numeroCni.errors.required" class="error-message">Champ obligatoire</div>
+                </div>
+              </div>
+              <label class="col-sm-2 col-form-label" for="numeroContribuable">N° Contribuable</label>
+              <div class="col-sm-4">
+                <input class="form-control" data-cy="numeroContribuableInput" formControlName="numeroContribuable"
+                       id="numeroContribuable" mdbValidate type="text">
+              </div>
+            </div>
+
+            <div class="form-group row" formArrayName="telephone">
+              <label class="col-sm-2 col-form-label" for="telephone">Telephone
+                <button (click)="addTelephone('')" class="waves-light" mdbBtn
+                        mdbTooltip="Ajouter un Numero de Telephone"
+                        mdbWavesEffect placement="right" style="margin: 0px 3px 0px 0px; padding: 0px 3px 0px 0px"
+                        type="button">
+                  <fa-icon [icon]="faPlusCircle" class="ml-1"></fa-icon>
+                </button>
+              </label>
+
+              <div *ngFor="let tel of getTelephones.controls; let i=index" class="input-group col-sm-2"
+                   formGroupName="{{i}}" id="telephone">
+                <input class="form-control" data-cy="telephoneInput" formControlName="number"
+                       pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+                       placeholder="N° Telephone" type="tel">
+
+                <div class="input-group-prepend">
+                  <button (click)="removeTelephone(i)" class="waves-light" mdbBtn mdbTooltip="Supprimer"
+                          mdbWavesEffect placement="right" style="margin: auto 5px; padding: 0px 3px 0px 0px"
+                          type="button">
+                    <fa-icon [icon]='faMinusCircle' class="ml-1"></fa-icon>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="email">Email</label>
+              <div class="col-sm-4">
+                <input class="form-control" data-cy="emailInput" formControlName="email" id="email" mdbValidate
+                       type="email">
+              </div>
+
+              <label class="col-sm-2 col-form-label" for="fax">Fax</label>
+              <div class="col-sm-4">
+                <input class="form-control" data-cy="faxInput" formControlName="fax" id="fax" mdbValidate type="text">
+              </div>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Information</legend>
+
+
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="raisonSociale">Raison Sociale *</label>
+              <div class="col-sm-10">
+                <input [ngClass]="{ 'is-invalid': submitted && f.raisonSociale.errors }" class="form-control"
+                       data-cy="raisonSocialeInput" formControlName="raisonSociale"
+                       id="raisonSociale"
+                       mdbValidate required
+                       type="text">
+                <div *ngIf="submitted && f.raisonSociale.errors" class="invalid-feedback">
+                  <div *ngIf="f.raisonSociale.errors.required" class="error-message">Champ obligatoire</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row">
+
+              <label class="col-sm-2 col-form-label" for="adresse">Adresse</label>
+              <div class="col-sm-4">
+                <input class="form-control" data-cy="adresseInput" formControlName="adresse" id="adresse" mdbValidate
+                       type="text">
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label" for="numeroRc">N° RC</label>
+                  <div class="col-sm-10">
+                    <input [ngClass]="{ 'is-invalid': submitted && f.numeroRc.errors }" class="form-control"
+                           data-cy="numeroRcInput" formControlName="numeroRc"
+                           id="numeroRc"
+                           mdbValidate type="text">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label" for="nature">Nature</label>
+                  <div class="col-sm-10">
+                    <input [ngClass]="{ 'is-invalid': submitted && f.nature.errors }" class="form-control"
+                           data-cy="natureInput" formControlName="nature"
+                           id="nature"
+                           mdbValidate type="text">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </fieldset>
+          <div style="display: flex; align-items: center; justify-content: flex-end;">
+            <button (click)="resetForm()" aria-label="Close" class="waves-light" data-cy="Cancel"
+                    id="discardNewCollectorButton"
+                    mdbBtn mdbWavesEffect style="background-color: #eee;color: #000;"
+                    type="button">
+              Annuler
+              <fa-icon [icon]="faTimes" style="color:#000 !important;"></fa-icon>
+            </button>
+            <button
+              [disabled]="isLoading || clientForm.controls['code' && 'firstName' && 'numeroCni' && 'raisonSociale'].invalid"
+              class="waves-light btn-save position: relative;"
+              data-cy="submit" id="saveNewCollectorButton"
+              mdbBtn>
+              Enregistrer
+              <div *ngIf="isLoading" class="spinner-container">
+                <svg class="spinner" height="50px" viewBox="0 0 66 66" width="50px" xmlns="http://www.w3.org/2000/svg">
+                  <circle class="path" cx="33" cy="33" fill="none" r="30" stroke-linecap="round" stroke-width="6">
+                  </circle>
+                </svg>
+              </div>
+              <fa-icon [icon]="faPaperPlane" class="ml-1"></fa-icon>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="block-label">
+      <a (click)="table.toggle()" class="nav-link waves-effect waves-light" type="button">
+        <b>Liste des clients</b>
+        <fa-icon [icon]="faEllipsisH" style="float: right;"></fa-icon>
+        <!--      <fa-icon [icon]="faEllipsisH"  style="float: right;"></fa-icon>-->
+      </a>
+    </div>
+    <div #table="bs-collapse" [isCollapsed]="true" mdbCollapse>
+      <div style="display: flex; width:auto;">
+        <!--        <div style="width: auto;">-->
+        <!--          <button type="button" id="btnNewUser" mdbBtn class="bwaves-light"-->
+        <!--                  style="background-color: #c62828;padding: 8px 10px; font-size:12px;" mdbWavesEffect>-->
+        <!--            <fa-icon [icon]="faClientPlus"></fa-icon>-->
+        <!--            Nouvel Utilisateur-->
+        <!--          </button>-->
+        <!--        </div>-->
+        <div style="width: auto;">
+          <button (click)="exportAsXLSX()" class="bwaves-light" id="btnExport" mdbBtn
+                  mdbTooltip="En fichier Excel"
+                  mdbWavesEffect placement="right" style="padding: 8px 10px; font-size:12px; background-color: #1d863e;"
+                  type="button">
+            <fa-icon [icon]="faFileExcel"></fa-icon>
+            Exporter la liste
+          </button>
+        </div>
+      </div>
+
+      <div class="table-responsive">
+        <div class="container" style="padding-top: 5px;">
+          <ng2-smart-table (custom)="onCustom($event)" [settings]="settings" [source]="clientSource"
+                           class="table-responsive">
+          </ng2-smart-table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

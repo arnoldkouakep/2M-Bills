@@ -1,0 +1,344 @@
+<div class="main">
+  <div class="container">
+    <div class="container">
+      <div class="row justify-content-center">
+        <form (ngSubmit)="onSubmit()" [formGroup]="dossierForm" id="newCollector"
+              style="position: relative; width: 100%;padding: 0 30px 10px 30px;background-color: #eee;">
+          <fieldset>
+            <legend>Dossier</legend>
+
+            <!--            <div style="display: flex; width: 100%;">-->
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="dateMiseEnPlace">Date</label>
+              <div class="col-sm-3">
+                <input [ngClass]="{ 'is-invalid': submitted && f.dateMiseEnPlace.errors }" class="form-control"
+                       data-cy="dateMiseEnPlaceInput" formControlName="dateMiseEnPlace"
+                       id="dateMiseEnPlace"
+                       mdbValidate required
+                       type="date">
+                <div *ngIf="submitted && f.dateMiseEnPlace.errors" class="invalid-feedback">
+                  <div *ngIf="f.dateMiseEnPlace.errors.required" class="error-message">Champ obligatoire</div>
+                </div>
+              </div>
+              <div class="col-sm-1"></div>
+              <label class="col-sm-2 col-form-label" for="numeroDossier">N° Dossier *</label>
+              <div class="col-sm-4">
+                <input [ngClass]="{ 'is-invalid': submitted && f.numeroDossier.errors }" class="form-control"
+                       data-cy="numeroDossierInput" formControlName="numeroDossier"
+                       id="numeroDossier"
+                       mdbValidate required
+                       type="text">
+                <div *ngIf="submitted && f.numeroDossier.errors" class="invalid-feedback">
+                  <div *ngIf="f.numeroDossier.errors.required" class="error-message">Champ obligatoire</div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="repertoire">Repertoire *</label>
+              <div class="col-sm-10">
+                <input [ngClass]="{ 'is-invalid': submitted && f.repertoire.errors }" class="form-control"
+                       data-cy="repertoireInput" formControlName="repertoire"
+                       id="repertoire"
+                       mdbValidate required
+                       type="text">
+                <div *ngIf="submitted && f.repertoire.errors" class="invalid-feedback">
+                  <div *ngIf="f.repertoire.errors.required" class="error-message">Champ obligatoire</div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="client">Client *</label>
+              <!--              <button type="button" mdbBtn color="default" rounded="true" data-toggle="modal" data-target="#basicExample"-->
+              <!--                      (click)="modalForm.show()" mdbWavesEffect>Launch Modal</button>-->
+              <div class="col-sm-5">
+                <input [ngClass]="{ 'is-invalid': submitted && f.client.errors }" class="form-control"
+                       data-cy="clientInput" formControlName="client"
+                       id="client" mdbValidate
+                       placeholder="Nom" required
+                       type="text">
+                <div *ngIf="submitted && f.client.errors" class="invalid-feedback">
+                  <div *ngIf="f.client.errors.required" class="error-message">Champ obligatoire</div>
+                </div>
+              </div>
+
+              <div class="col-sm-5">
+                <input [ngClass]="{ 'is-invalid': submitted && f.client.errors }" class="form-control"
+                       data-cy="clientInput"
+                       id="clientLastName" mdbValidate
+                       placeholder="Prenom" type="text">
+                <div *ngIf="submitted && f.client.errors" class="invalid-feedback">
+                  <div *ngIf="f.client.errors.required" class="error-message">Champ obligatoire</div>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Nom & Adresses</legend>
+
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="personnalByExpediteur">Expediteur *</label>
+              <div class="col-sm-4">
+                <input [ngClass]="{ 'is-invalid': submitted && f.personnalByExpediteur.errors }" class="form-control"
+                       data-cy="personnalByExpediteurInput"
+                       formControlName="personnalByExpediteur"
+                       id="personnalByExpediteur"
+                       mdbValidate required
+                       type="text">
+                <div *ngIf="submitted && f.personnalByExpediteur.errors" class="invalid-feedback">
+                  <div *ngIf="f.personnalByExpediteur.errors.required" class="error-message">Champ obligatoire</div>
+                </div>
+              </div>
+              <label class="col-sm-2 col-form-label" for="personnalByDestinataire">Destinataire *</label>
+              <div class="col-sm-4">
+                <input [ngClass]="{ 'is-invalid': submitted && f.personnalByDestinataire.errors }" class="form-control"
+                       data-cy="personnalByDestinataireInput"
+                       formControlName="personnalByDestinataire"
+                       id="personnalByDestinataire"
+                       mdbValidate required
+                       type="text">
+                <div *ngIf="submitted && f.personnalByDestinataire.errors" class="invalid-feedback">
+                  <div *ngIf="f.personnalByDestinataire.errors.required" class="error-message">Champ obligatoire</div>
+                </div>
+              </div>
+            </div>
+
+          </fieldset>
+
+
+          <fieldset>
+            <legend>Designation des marchandises</legend>
+
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="numeroTarifaire">Numero Tarifaire *</label>
+              <div class="col-sm-2">
+                <input [ngClass]="{ 'is-invalid': submitted && f.numeroTarifaire.errors }" class="form-control"
+                       data-cy="numeroTarifaireInput"
+                       formControlName="numeroTarifaire"
+                       id="numeroTarifaire"
+                       mdbValidate required
+                       type="text">
+                <div *ngIf="submitted && f.numeroTarifaire.errors" class="invalid-feedback">
+                  <div *ngIf="f.numeroTarifaire.errors.required" class="error-message">Champ obligatoire</div>
+                </div>
+              </div>
+              <label class="col-sm-2 col-form-label" for="montantDeclare">Valeur déclarée *</label>
+              <div class="col-sm-2">
+                <input [ngClass]="{ 'is-invalid': submitted && f.montantDeclare.errors }" class="form-control"
+                       data-cy="montantDeclareInput"
+                       formControlName="montantDeclare"
+                       id="montantDeclare"
+                       mdbValidate required
+                       type="text">
+                <div *ngIf="submitted && f.montantDeclare.errors" class="invalid-feedback">
+                  <div *ngIf="f.montantDeclare.errors.required" class="error-message">Champ obligatoire</div>
+                </div>
+              </div>
+
+              <label class="col-sm-1 col-form-label" for="bureau">Bureau *</label>
+              <div class="col-sm-3">
+                <input [ngClass]="{ 'is-invalid': submitted && f.bureau.errors }" class="form-control"
+                       data-cy="bureauInput" formControlName="bureau"
+                       id="bureau"
+                       mdbValidate required
+                       type="text">
+                <div *ngIf="submitted && f.bureau.errors" class="invalid-feedback">
+                  <div *ngIf="f.bureau.errors.required" class="error-message">Champ obligatoire</div>
+                </div>
+              </div>
+            </div>
+
+          </fieldset>
+
+          <fieldset>
+            <legend>Declaration</legend>
+
+            <div class="form-group row">
+              <label class="col-sm-1 col-form-label" for="regime">Regime *</label>
+              <div class="col-sm-3">
+                <input [ngClass]="{ 'is-invalid': submitted && f.regime.errors }" class="form-control"
+                       data-cy="regimeInput"
+                       formControlName="regime"
+                       id="regime"
+                       mdbValidate required
+                       type="text">
+                <div *ngIf="submitted && f.regime.errors" class="invalid-feedback">
+                  <div *ngIf="f.regime.errors.required" class="error-message">Champ obligatoire</div>
+                </div>
+              </div>
+
+              <label class="col-sm-1 col-form-label" for="dateDeclaration">Date *</label>
+              <div class="col-sm-3">
+                <input [ngClass]="{ 'is-invalid': submitted && f.dateDeclaration.errors }" class="form-control"
+                       data-cy="dateDeclarationInput" formControlName="dateDeclaration"
+                       id="dateDeclaration"
+                       mdbValidate required
+                       type="date">
+                <div *ngIf="submitted && f.dateDeclaration.errors" class="invalid-feedback">
+                  <div *ngIf="f.dateDeclaration.errors.required" class="error-message">Champ obligatoire</div>
+                </div>
+              </div>
+              <label class="col-sm-2 col-form-label" for="numeroDeclaration">Numero *</label>
+              <div class="col-sm-2">
+                <input [ngClass]="{ 'is-invalid': submitted && f.numeroDeclaration.errors }" class="form-control"
+                       data-cy="numeroDeclarationInput"
+                       formControlName="numeroDeclaration"
+                       id="numeroDeclaration"
+                       mdbValidate required
+                       type="text">
+                <div *ngIf="submitted && f.numeroDeclaration.errors" class="invalid-feedback">
+                  <div *ngIf="f.numeroDeclaration.errors.required" class="error-message">Champ obligatoire</div>
+                </div>
+              </div>
+            </div>
+
+          </fieldset>
+
+
+          <fieldset>
+            <legend>Droit et Taxe</legend>
+
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="montantTaxe">Montant Taxe *</label>
+              <div class="col-sm-2">
+                <input [ngClass]="{ 'is-invalid': submitted && f.regime.errors }" class="form-control"
+                       data-cy="montantTaxeInput"
+                       formControlName="montantTaxe"
+                       id="montantTaxe"
+                       mdbValidate required
+                       type="text">
+                <div *ngIf="submitted && f.regime.errors" class="invalid-feedback">
+                  <div *ngIf="f.regime.errors.required" class="error-message">Champ obligatoire</div>
+                </div>
+              </div>
+              <div class="col-sm-3"></div>
+              <label class="col-sm-2 col-form-label" for="observation">Observation *</label>
+              <div class="col-sm-3">
+                <input [ngClass]="{ 'is-invalid': submitted && f.observation.errors }" class="form-control"
+                       data-cy="observationInput"
+                       formControlName="observation"
+                       id="observation"
+                       mdbValidate required
+                       type="text">
+                <div *ngIf="submitted && f.observation.errors" class="invalid-feedback">
+                  <div *ngIf="f.observation.errors.required" class="error-message">Champ obligatoire</div>
+                </div>
+              </div>
+            </div>
+
+          </fieldset>
+          <div style="display: flex; align-items: center; justify-content: flex-end;">
+            <button (click)="resetForm()" aria-label="Close" class="waves-light" data-cy="Cancel"
+                    id="discardNewCollectorButton"
+                    mdbBtn mdbWavesEffect style="background-color: #eee;color: #000;"
+                    type="button">
+              Annuler
+              <fa-icon [icon]="faTimes" style="color:#000 !important;"></fa-icon>
+            </button>
+            <button [disabled]="isLoading || dossierForm.invalid " class="waves-light btn-save position: relative;"
+                    data-cy="submit" id="saveNewCollectorButton" mdbBtn>
+              Enregistrer
+              <div *ngIf="isLoading" class="spinner-container">
+                <svg class="spinner" height="50px" viewBox="0 0 66 66" width="50px" xmlns="http://www.w3.org/2000/svg">
+                  <circle class="path" cx="33" cy="33" fill="none" r="30" stroke-linecap="round" stroke-width="6">
+                  </circle>
+                </svg>
+              </div>
+              <fa-icon [icon]="faPaperPlane" class="ml-1"></fa-icon>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="block-label">
+      <a (click)="table.toggle()" class="nav-link waves-effect waves-light" type="button">
+        <b>Liste des dossiers</b>
+        <fa-icon [icon]="faEllipsisH" style="float: right;"></fa-icon>
+        <!--      <fa-icon [icon]="faEllipsisH"  style="float: right;"></fa-icon>-->
+      </a>
+    </div>
+    <div #table="bs-collapse" [isCollapsed]="true" mdbCollapse>
+      <div style="display: flex; width:auto;">
+        <!--        <div style="width: auto;">-->
+        <!--          <button type="button" id="btnNewUser" mdbBtn class="bwaves-light"-->
+        <!--                  style="background-color: #c62828;padding: 8px 10px; font-size:12px;" mdbWavesEffect>-->
+        <!--            <fa-icon [icon]="faDossierPlus"></fa-icon>-->
+        <!--            Nouvel Utilisateur-->
+        <!--          </button>-->
+        <!--        </div>-->
+        <div style="width: auto;">
+          <button (click)="exportAsXLSX()" class="bwaves-light" id="btnExport" mdbBtn
+                  mdbTooltip="En fichier Excel"
+                  mdbWavesEffect placement="right" style="padding: 8px 10px; font-size:12px; background-color: #1d863e;"
+                  type="button">
+            <fa-icon [icon]="faFileExcel"></fa-icon>
+            Exporter la liste
+          </button>
+        </div>
+      </div>
+
+      <div class="table-responsive">
+        <div class="container" style="padding-top: 5px;">
+          <ng2-smart-table (custom)="onCustom($event)" [settings]="settings" [source]="dossierSource"
+                           class="table-responsive">
+          </ng2-smart-table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--<button type="button" mdbBtn color="default" rounded="true" data-toggle="modal" data-target="#basicExample"-->
+<!--        (click)="modalForm.show()" mdbWavesEffect>Launch Modal</button>-->
+
+<!--<div mdbModal class="modal fade left" #modalForm ="mdbModal" id="frameModalTop" tabindex="-1" role="dialog"-->
+<!--     aria-labelledby="myModalLabel" aria-hidden="true">-->
+<!--  <div class="modal-dialog" role="document">-->
+<!--    <div class="modal-content">-->
+<!--      <div class="modal-header text-center">-->
+<!--        <h4 class="modal-title w-100 font-weight-bold">Sign in</h4>-->
+<!--        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="modalForm.hide()">-->
+<!--          <span aria-hidden="true">&times;</span>-->
+<!--        </button>-->
+<!--      </div>-->
+<!--      <div class="modal-body mx-3">-->
+
+<!--&lt;!&ndash;        w&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="md-form mb-5">&ndash;&gt;-->
+<!--&lt;!&ndash;          <mdb-icon fas icon="envelope" class="prefix grey-text"></mdb-icon>&ndash;&gt;-->
+<!--&lt;!&ndash;          <input type="email" id="defaultForm-email" [formControl]="loginFormModalEmail" class="form-control"&ndash;&gt;-->
+<!--&lt;!&ndash;                 mdbInput mdbValidate>&ndash;&gt;-->
+<!--&lt;!&ndash;          <label for="defaultForm-email">Your email</label>&ndash;&gt;-->
+<!--&lt;!&ndash;          <mdb-error&ndash;&gt;-->
+<!--&lt;!&ndash;            *ngIf="loginFormModalEmail.invalid && (loginFormModalEmail.dirty || loginFormModalEmail.touched)">&ndash;&gt;-->
+<!--&lt;!&ndash;            Input invalid&ndash;&gt;-->
+<!--&lt;!&ndash;          </mdb-error>&ndash;&gt;-->
+<!--&lt;!&ndash;          <mdb-success&ndash;&gt;-->
+<!--&lt;!&ndash;            *ngIf="loginFormModalEmail.valid && (loginFormModalEmail.dirty || loginFormModalEmail.touched)">Input&ndash;&gt;-->
+<!--&lt;!&ndash;            valid&ndash;&gt;-->
+<!--&lt;!&ndash;          </mdb-success>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        <div class="md-form mb-4">&ndash;&gt;-->
+<!--&lt;!&ndash;          <mdb-icon fas icon="lock" class="prefix grey-text"></mdb-icon>&ndash;&gt;-->
+<!--&lt;!&ndash;          <input type="password" id="defaultForm-pass" [formControl]="loginFormModalPassword" class="form-control"&ndash;&gt;-->
+<!--&lt;!&ndash;                 mdbInput mdbValidate>&ndash;&gt;-->
+<!--&lt;!&ndash;          <label for="defaultForm-pass">Your password</label>&ndash;&gt;-->
+<!--&lt;!&ndash;          <mdb-error&ndash;&gt;-->
+<!--&lt;!&ndash;            *ngIf="loginFormModalPassword.invalid && (loginFormModalPassword.dirty || loginFormModalPassword.touched)">&ndash;&gt;-->
+<!--&lt;!&ndash;            Input invalid&ndash;&gt;-->
+<!--&lt;!&ndash;          </mdb-error>&ndash;&gt;-->
+<!--&lt;!&ndash;          <mdb-success&ndash;&gt;-->
+<!--&lt;!&ndash;            *ngIf="loginFormModalPassword.valid && (loginFormModalPassword.dirty || loginFormModalPassword.touched)">&ndash;&gt;-->
+<!--&lt;!&ndash;            Input valid&ndash;&gt;-->
+<!--&lt;!&ndash;          </mdb-success>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;c&ndash;&gt;-->
+<!--      </div>-->
+<!--      <div class="modal-footer d-flex justify-content-center">-->
+<!--        <button mdbBtn color="default" class="waves-light" mdbWavesEffect>OK</button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->

@@ -1,0 +1,306 @@
+.dropdown {
+  left: auto;
+}
+
+.dropdown {
+  left: auto;
+}
+
+.dropdown-item {
+  padding: 7px !important;
+  font-weight: bolder !important;
+
+  &:hover {
+    background-color: #eee;
+  }
+}
+
+.dropdown-menu {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16),
+  0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  right: 11px;
+  border-radius: 0;
+}
+
+.search-bar {
+  display: block;
+  padding: 8px 0 8px 50px;
+  width: 100%;
+  // background: rgba(255, 255, 255, 0.3);
+  height: 24px;
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
+  border: none;
+  font-size: 16px;
+  appearance: textfield;
+  font-weight: 400;
+  outline: none;
+  border-radius: 3px;
+  box-shadow: none;
+  box-sizing: content-box;
+  background-color: #eee;
+}
+
+.search-bar:focus {
+  color: #000;
+  background-color: #eee;
+  box-shadow: none !important;
+  box-sizing: none !important;
+  border: 2px solid #dcdcdc;
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px;
+  font-size: 20px;
+  color: #808080;
+}
+
+.cog, .sign-out {
+  color: #444;
+}
+
+.navbar-nav li {
+  padding: 10px;
+  color: #808080;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+.ellipsis-v {
+  font-size: 25px;
+  color: #808080;
+}
+
+input:focus .search-icon {
+  color: #808080;
+}
+
+.sidebar-collapse {
+  background-color: #000;
+  width: 43px;
+  height: 41px;
+  border-radius: 6px;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  opacity: 0.4;
+  top: 0;
+  z-index: 1;
+  cursor: pointer;
+  padding-top: 4px;
+}
+
+// .sidebar-collapse span
+// .fa-chevron-left::before{
+// content: '1';
+// }
+.sidebar-collapse fa-icon {
+  color: #fff;
+  font-weight: bold;
+  padding-right: 0;
+  font-size: 22px;
+  transition: 0.3s;
+}
+
+.sidebar-collapse:hover {
+  color: #c62828;
+  font-size: 29px;
+  padding-top: 0;
+}
+
+.sidebar-collapse:hover fa-icon {
+  color: #c62828;
+  font-size: 29px;
+}
+
+.notifications {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1), 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+  position: absolute;
+  background-color: #0690fa;
+  color: #fff;
+  padding: 0 5px;
+  border-radius: 10px;
+  font-size: 12px;
+  top: 11px;
+  right: 0;
+  font-weight: bold;
+}
+
+.messages {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1), 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+  position: absolute;
+  background-color: #e8403c;
+  color: #fff;
+  padding: 0 5px;
+  border-radius: 10px;
+  font-size: 12px;
+  top: 11px;
+  right: 0;
+  font-weight: bold
+}
+
+.shadow-content {
+  position: absolute;
+  background-color: #000;
+  height: 140%;
+  width: 99.2%;
+  transition: width 2s;
+  opacity: .1;
+  margin: -13px 0 0 -16px;
+  // opacity: 1;
+  // background-color: #d3d8e5;
+}
+
+.fa-bars {
+  display: none;
+}
+
+.nav-flex-icons li {
+  cursor: pointer;
+}
+
+form.navbar-nav {
+  width: 70%;
+  position: relative;
+  margin-left: 20px;
+}
+
+.navbar {
+  background-color: #fff !important;
+}
+
+.responsive-icons {
+  display: none;
+}
+
+.navbar-collapse-content .nav-flex-icons {
+  position: absolute;
+  right: 0;
+}
+
+@media screen and (max-width: 1000px) {
+  .nav-item.dropdown {
+    display: none;
+  }
+  .navbar-collapse-content .nav-flex-icons {
+    right: 5px;
+  }
+  form.navbar-nav {
+    margin-left: -5%;
+  }
+
+  .fa-bars {
+    display: inline;
+    cursor: pointer;
+  }
+  .shadow-content {
+    display: none;
+  }
+  .sidebar-collapse {
+    display: none;
+  }
+}
+
+.navbar-collapse-content {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  flex-basis: 100%;
+}
+
+.navbar-brand {
+  position: relative;
+}
+
+@media screen and (max-width: 648px) {
+  .navbar-brand {
+    padding: 10px 0;
+  }
+  .navbar-collapse-content {
+    display: none;
+  }
+  .responsive-icons {
+    display: inline;
+    position: absolute;
+    right: 5px;
+  }
+
+  .navbar {
+    padding: 0 1rem;
+  }
+}
+
+#lang option[value="en"] {
+  background-image: url(../../../../assets/images/usa-flag-icon.png);
+}
+
+/* Reset Select */
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important;
+  color: #2c3e50;
+  background-image: none;
+}
+
+/* Remove IE arrow */
+select::-ms-expand {
+  display: none;
+}
+
+/* Custom Select */
+.select {
+  position: relative;
+  display: flex;
+  width: 3.5em;
+  line-height: 2;
+  color: #2c3e50;
+  overflow: hidden;
+  border-radius: .15em;
+  font-size: 14px;
+  border: 1px solid #dcdcdc;
+  padding-top: 2px;
+}
+
+select {
+  // text-transform: uppercase;
+  flex: 1;
+  padding: 0 .3em;
+  cursor: pointer;
+}
+
+/* Arrow */
+.select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 2px;
+  right: 0;
+  padding: 0 .3em;
+  color: #34495e;
+  cursor: pointer;
+  pointer-events: none;
+  -webkit-transition: .25s all ease;
+  -o-transition: .25s all ease;
+  transition: .25s all ease;
+}
+
+/* Transition */
+.select:hover::after {
+  font-weight: bold;
+}
+
+.select:hover {
+  background-color: #dcdcdc;
+}
+
+select:hover {
+  background-color: #dcdcdc;
+  font-weight: bold;
+}

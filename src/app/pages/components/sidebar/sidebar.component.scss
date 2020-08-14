@@ -1,0 +1,215 @@
+.side-nav {
+  position: fixed;
+  display: block !important;
+  height: 100%;
+  background-color: #33425b;
+  min-height: 100vh;
+  width: 16em;
+  z-index: 1;
+  box-shadow: 0 16px 18px -12px rgba(0, 0, 0, .56), 0 4px 25px 0 rgba(0, 0, 0, .12), 0 8px 10px -5px rgba(0, 0, 0, .2);
+  left: 0;
+  top: 0;
+  transition: 0.5s;
+  width: 16em;
+}
+
+.left-menu {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+}
+
+.fa {
+  font-size: 25px;
+}
+
+nav.container {
+  margin-left: 0;
+}
+
+.aside-menu-item {
+  width: 100%;
+  margin: 0;
+  cursor: pointer;
+  color: #fff;
+  background-color: #33425b;
+  /* text-align: center; */
+  padding: 10px;
+  font-size: 14px;
+}
+
+.aside-menu-item:hover {
+  color: #fff;
+  background-color: #1888ac;
+}
+
+.group-item {
+  list-style: none;
+}
+
+.group-item li {
+  cursor: pointer;
+}
+
+.group-item li:hover {
+  background-color: #5e5e5f;
+}
+
+.list-group-item {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.hide-item {
+  transition: all 500ms ease 0.5s;
+  display: none;
+}
+
+// Accordion style
+.accordion, .accordion-static {
+  background-color: #33425b;
+  color: #e7e7e7;
+  cursor: pointer;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 14px;
+}
+
+.accordion-static img {
+  width: 32px;
+  padding-right: 10px;
+}
+
+.left-menu-resp img {
+  width: 25px;
+}
+
+.accordion:hover,
+.accordion-static:hover {
+  background-color: #272730;
+}
+
+.accordion:after {
+  content: '\002B';
+  color: #eee;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.panel {
+  padding: 0;
+  background-color: #33425b;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  padding: 5px 0 5px 30px
+}
+
+a {
+  color: #fff;
+}
+
+.profile {
+  position: absolute;
+  left: 35%;
+  top: 68px;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  font-size: 14px;
+}
+
+.active .accordion-static, .left-menu-resp a.active {
+  background-color: #222225;
+  border-left: 3px solid #e8403c;
+}
+
+fa-icon {
+  padding-right: 10px;
+  font-size: 20px;
+}
+
+.left-menu-resp a {
+  display: block;
+  text-align: center;
+  padding: 10px;
+  outline: 0;
+}
+
+.profile-background {
+  width: 100%;
+  position: relative;
+  height: 150px;
+  background-image: url('../../../../assets/images/background1.jpg');
+  background-size: cover;
+  opacity: 0.2;
+  margin-bottom: 10px;
+}
+
+.close-btn {
+  display: none;
+}
+
+@media screen and (max-width: 1000px) {
+
+  .left-menu-resp {
+    display: none;
+  }
+
+  .profile {
+    top: 24px;
+  }
+
+  .empty-container {
+    display: none;
+  }
+
+  .close-btn {
+    display: inline;
+    font-size: 25px;
+    font-weight: bold;
+    color: #fff;
+    position: absolute;
+    left: 10px;
+    cursor: pointer;
+    z-index: 1;
+  }
+  .side-nav {
+    position: fixed;
+    width: 0;
+    top: 0;
+    z-index: 1036;
+  }
+}
+
+.empty-container {
+  height: 60px;
+}
+
+.backdrop {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1035; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}

@@ -1,0 +1,24 @@
+{
+  "HOME": {
+    "TITLE": "2M-Bills",
+    "LANG": "Changer la langue"
+  },
+  "menu": {
+    "dashboard": "Tableau de bord",
+    "subscriptions": "Gestion des Abonnements",
+    "accounts": "Gestion des comptes",
+    "customers": "Gestion des sociétaires",
+    "collects": "Gestion des collectes",
+    "products": "Produits",
+    "branches": "Caisses et DABs",
+    "users&security": "Utilisateurs et Sécurité"
+  },
+  "profile": {
+    "title": "Chef d'caisse"
+  },
+  "dash": {
+    "expensesReport": "Rapport Des Depenses",
+    "clientsCreated": "Clients créés",
+    "naviresCreated": "Navires créés"
+  }
+}

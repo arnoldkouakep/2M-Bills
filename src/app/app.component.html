@@ -1,0 +1,5 @@
+<!-- main app container -->
+<app-sidebar *ngIf="isLogin()"></app-sidebar>
+<app-header *ngIf="isLogin()"></app-header>
+<router-outlet></router-outlet>
+<div class="backdrop"></div>

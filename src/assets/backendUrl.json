@@ -1,0 +1,8 @@
+{
+  "content": "http://localhost:27093/dossier-api/",
+  "dossier": "http://localhost:27093/dossier-api/",
+  "navire": "http://localhost:27094/navire-api/"
+}
+
+
+

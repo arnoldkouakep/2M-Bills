@@ -1,0 +1,24 @@
+{
+  "HOME": {
+    "TITLE": "Hello Angular with ngx-translate!",
+    "SELECT": "Change language"
+  },
+  "menu": {
+    "dashboard": "Dashboard",
+    "subscriptions": "Subscriptions",
+    "accounts": "Accounts",
+    "customers": "Customers",
+    "collects": "Collects",
+    "products": "Products",
+    "branches": "Branches and ATMs",
+    "users&security": "Users & Security"
+  },
+  "profile": {
+    "title": "Branch Manager"
+  },
+  "dash": {
+    "expensesReport": "Expenses Report",
+    "clientsCreated": "Clients created",
+    "naviresCreated": "Navires created"
+  }
+}

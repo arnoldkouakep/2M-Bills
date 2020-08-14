@@ -1,0 +1,177 @@
+.relative {
+  background-color: #c62828;
+  padding: 12px 10px;
+  font-size: 14px;
+  text-align: center;
+  width: 40%;
+  margin: 0 auto;
+  display: block;
+}
+
+.result-container {
+  visibility: hidden;
+  position: absolute;
+}
+
+.badge {
+  font-size: 12px;
+}
+
+legend {
+  background-color: #dee0e4;
+  font-size: 15px;
+  padding: 3px;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+fieldset {
+  border: 1px solid #eee;
+  margin-bottom: 7px;
+  padding: 5px;
+  box-shadow: 1px 1px 10px 1px #cfcfcf;
+  background-color: #fff;
+}
+
+// .modal-dialog{
+// margin-top: 10px;
+// }
+
+.md-form {
+  margin-bottom: 4px;
+  margin-right: 10px;
+}
+
+.branch .md-form {
+  margin-right: 0;
+}
+
+// css spinner
+$offset: 187;
+$duration: 1.4s;
+
+.spinner-container {
+  text-align: center;
+  padding-top: 10px; // display: none;
+  margin: auto;
+}
+
+form .spinner-container {
+  position: absolute;
+  z-index: 1;
+  top: -12px;
+  right: 0;
+}
+
+.spinner {
+  animation: rotator $duration linear infinite;
+  width: 40%;
+}
+
+@keyframes rotator {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(270deg);
+  }
+}
+
+.path {
+  stroke-dasharray: $offset;
+  stroke-dashoffset: 0;
+  transform-origin: center;
+  animation: dash $duration ease-in-out infinite, colors ($duration*4) ease-in-out infinite;
+}
+
+@keyframes colors {
+  0% {
+    stroke: #4285F4;
+  }
+
+  25% {
+    stroke: #DE3E35;
+  }
+
+  50% {
+    stroke: #F7C223;
+  }
+
+  75% {
+    stroke: #1B9A59;
+  }
+
+  100% {
+    stroke: #4285F4;
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset: $offset;
+  }
+
+  50% {
+    stroke-dashoffset: $offset/4;
+    transform: rotate(135deg);
+  }
+
+  100% {
+    stroke-dashoffset: $offset;
+    transform: rotate(450deg);
+  }
+}
+
+
+table.table th {
+  white-space: nowrap;
+  font-weight: bold;
+  padding: 7px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+table.table td {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+td {
+  padding-left: 5px;
+  padding-right: 0;
+}
+
+.modal-content {
+  background-color: #eee;
+}
+
+.table {
+  margin: 0 !important;
+}
+
+button {
+  padding: 8px;
+}
+
+.success.active {
+  color: green;
+  border-bottom: 3px solid green;
+}
+
+.reject.active {
+  color: red;
+  border-bottom: 3px solid red;
+}
+
+.block-label {
+  margin: 0;
+  margin-bottom: 0px;
+  padding: 10px;
+  font-size: 14px;
+  background-color: #33425b;
+  font-weight: bold;
+  margin-bottom: 6px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+  color: #fff;
+}

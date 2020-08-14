@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>2M-Bills</title>
+  <base href="/">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta charset="utf-8">
+  <link href="favicon.ico" rel="icon" type="image/x-icon">
+</head>
+
+<style>
+  .loading {
+    position: relative;
+    justify-content: center;
+    margin-top: 40vh;
+    text-align: center;
+  }
+
+  .loading img {
+    padding-bottom: 20px;
+    position: relative;
+    width: auto;
+  }
+
+  .loading-bar {
+    display: inline-block;
+    width: 4px;
+    height: 18px;
+    border-radius: 4px;
+    animation: loading 1s ease-in-out infinite;
+  }
+
+  .loading-bar:nth-child(1) {
+    background-color: #3e5479;
+    animation-delay: initial;
+  }
+
+  .loading-bar:nth-child(2) {
+    background-color: #c0392b;
+    animation-delay: 0.09s;
+  }
+
+  .loading-bar:nth-child(3) {
+    background-color: #3e5479;
+    animation-delay: .18s;
+  }
+
+  .loading-bar:nth-child(4) {
+    background-color: #c0392b;
+    animation-delay: .27s;
+  }
+
+  @keyframes loading {
+    0% {
+      transform: scale(1);
+    }
+    20% {
+      transform: scale(1, 2.2);
+    }
+    40% {
+      transform: scale(1);
+    }
+  }
+</style>
+<body style="background-color: #eee;">
+<app-root>
+  <div class="loading">
+    <span style="font-family: Sans-Serif;font-size: 40px; font-weight: bold; margin-bottom: 12px;">
+        <span style="color: #3e5479;">2M</span><b><i> - </i></b>
+        <span style="color: #e2001a;margin-left: 12px;">Bills</span>
+      </span>
+    <div style="justify-content: center;">
+      <div class="loading-bar"></div>
+      <div class="loading-bar"></div>
+      <div class="loading-bar"></div>
+      <div class="loading-bar"></div>
+    </div>
+  </div>
+</app-root>
+</body>
+
+<script>
+    'use strict';
+    ;(function (document, window, index) {
+        var inputs = document.querySelectorAll('.inputfile');
+        Array.prototype.forEach.call(inputs, function (input) {
+            var label = input.nextElementSibling,
+                labelVal = label.innerHTML;
+
+            input.addEventListener('change', function (e) {
+                var fileName = '';
+                if (this.files && this.files.length > 1)
+                    fileName = (this.getAttribute('data-multiple-caption') || '').replace('{count}', this.files.length);
+                else
+                    fileName = e.target.value.split('\\').pop();
+
+                if (fileName)
+                    label.querySelector('span').innerHTML = fileName;
+                else
+                    label.innerHTML = labelVal;
+            });
+
+            // Firefox bug fix
+            input.addEventListener('focus', function () {
+                input.classList.add('has-focus');
+            });
+            input.addEventListener('blur', function () {
+                input.classList.remove('has-focus');
+            });
+        });
+    }(document, window, 0));
+</script>
+</html>

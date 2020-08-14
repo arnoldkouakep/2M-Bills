@@ -1,0 +1,151 @@
+<div class="side-nav">
+  <div class="left-menu">
+    <div class="empty-container"></div>
+    <span class="close-btn">x</span>
+    <div class="profile-background">
+    </div>
+    <div class="profile">
+      <img alt="Profile" src="../../../../assets/images/profile-picture.jpg" style="width: 50%;border-radius: 50%;">
+      <div style="display: flex;">
+        <span>
+          <span style="font-weight: bold;">
+            {{ userName }}
+            BENI
+          </span>
+          <br><span>
+            {{ userRole }}
+          <!-- {{ 'profile.title' | translate }} -->
+          </span>
+        </span>
+        <fa-icon [icon]="faCaretDown"></fa-icon>
+      </div>
+    </div>
+
+
+    <!--    <ul id="accordion" class="accordion" >-->
+    <!--      <li *ngFor="let menu of menus; let i = index"-->
+    <!--          [class.active]="menu.active">-->
+    <!--        <div class="menu" (click)="toggle(i)">-->
+    <!--          <i [class]="menu.iconClass"></i>-->
+    <!--          {{ menu.name }}-->
+    <!--          <i class="fa fa-chevron-down"></i>-->
+    <!--        </div>-->
+    <!--        <ul class="submenu" #submenu-->
+    <!--            [style.height.px]="menu.active ? submenu.scrollHeight : 0">-->
+    <!--          <li *ngFor="let submenu of menu.submenu">-->
+    <!--            <a [href]="submenu.url">{{ submenu.name }}</a>-->
+    <!--          </li>-->
+    <!--        </ul>-->
+    <!--      </li>-->
+    <!--    </ul>-->
+
+
+    <!-- Accodion -->
+    <a id="dashboard" routerLink="/dashboard" routerLinkActive="active">
+      <button class="accordion-static">
+        <img alt="" src="../../../../assets/images/icons/dashboard.png">
+        <!-- {{ 'menu.dashboard' | translate }}     -->
+        Tableau de Bord
+      </button>
+    </a>
+
+    <!-- <a routerLink="/bank" routerLinkActive="active" id="subscriptions">
+       <button class="accordion-static">
+         <img src="../../../../assets/images/icons/accounts.png" alt="">
+         <!- {{ 'menu.subscriptions' | translate }} ->
+        <!- Gestion des abonnements ->
+        Gestion Banques
+       </button>
+   </a> left-menu-resp-->
+    <a id="dossier" routerLink="/dossier" routerLinkActive="active">
+      <button class="accordion-static">
+        <img alt="" src="../../../../assets/images/icons/branches.png">
+        <!-- {{ 'menu.collects' | translate }} -->
+        <!-- Gestion des collectes --> Service Dossiers
+      </button>
+    </a>
+    <a id="client" routerLink="/dossier/client" routerLinkActive="active">
+      <button class="accordion-static">
+        <img alt="" src="../../../../assets/images/icons/branches.png">
+        <!-- {{ 'menu.collects' | translate }} -->
+        <!-- Gestion des collectes --> Gestion Client
+      </button>
+    </a>
+    <a id="navire" routerLink="/navire" routerLinkActive="active">
+      <button class="accordion-static">
+        <img alt="" src="../../../../assets/images/icons/collects.png">
+        <!-- {{ 'menu.branches' | translate }} -->
+        <!-- Caisses et DABs-->
+        Service Navires
+      </button>
+    </a>
+
+    <a *ngIf="isVisible" id="depenses" routerLink="/card" routerLinkActive="active">
+      <button class="accordion-static">
+        <img alt="" src="../../../../assets/images/icons/subscriptions.png">
+        Service Depenses <!-- same -->
+      </button>
+    </a>
+
+    <a *ngIf="isVisible" id="facturation" routerLink="/card" routerLinkActive="active">
+      <button class="accordion-static">
+        <img alt="" src="../../../../assets/images/icons/subscriptions.png">
+        Service Facturation <!-- same -->
+      </button>
+    </a>
+
+    <a *ngIf="isVisible" id="users" routerLink="/users" routerLinkActive="active">
+      <button class="accordion-static">
+        <img alt="" src="../../../../assets/images/icons/customers.png">
+        <!-- {{ 'menu.users&security' | translate }} -->
+        <!-- Utilisateurs et Sécurité-->
+        Gestion des Utilisateurs
+      </button>
+    </a>
+    <a *ngIf="isVisible" id="setting" routerLink="/settings" routerLinkActive="active">
+      <button class="accordion-static">
+        <img alt="" src="../../../../assets/images/icons/settings.png">
+        Parametres Generaux <!-- same -->
+      </button>
+    </a>
+    <a id="user-parameters" routerLink="/user-parameters" routerLinkActive="active">
+      <button class="accordion-static">
+        <img alt="" src="../../../../assets/images/icons/user-profile.png">
+        Profil Utilisateurs
+      </button>
+    </a>
+
+
+  </div>
+  <div class="left-menu-resp">
+    <div class="empty-container"></div>
+    <a id="dashboard-resp" routerLink="/dashboard" routerLinkActive="active">
+      <img alt="" src="../../../../assets/images/icons/dashboard.png">
+    </a>
+    <!-- <a routerLink="/accounts" routerLinkActive="active" id="accounts-resp">
+       <img src="../../../../assets/images/icons/accounts.png" alt="">
+     </a> -->
+    <!-- <a routerLink="/customers" routerLinkActive="active" id="customers-resp">
+       <img src="../../../../assets/images/icons/customers.png" alt="">
+     </a> -->
+    <a id="suscriptions-resp" routerLink="/dossier" routerLinkActive="active">
+      <img alt="" src="../../../../assets/images/icons/branches.png">
+    </a>
+    <!--    <a class="collects-resp" routerLink="/emfs" routerLinkActive="active">-->
+    <!--      <img alt="" src="../../../../assets/images/icons/accounts.png">-->
+    <!--    </a>-->
+    <!-- <a routerLink="/products" routerLinkActive="active">
+      <img src="../../../../assets/images/icons/products.png" alt="">
+    </a> -->
+    <a id="branches-resp" routerLink="/navire" routerLinkActive="active">
+      <img alt="" src="../../../../assets/images/icons/collects.png">
+    </a>
+
+    <a id="parameters" routerLink="/user-parameters" routerLinkActive="active">
+      <img alt="" src="../../../../assets/images/icons/user-profile.png">
+    </a>
+  </div>
+</div>
+
+<div class="backdrop">fff</div>
+

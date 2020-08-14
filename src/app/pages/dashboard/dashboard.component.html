@@ -1,0 +1,231 @@
+<div class="main">
+  <div class="container" style="padding-top: 10px; padding-bottom: 10px;">
+
+    <div class="row" style="padding: 10px; justify-content:center">
+
+      <div class="col-md-3" style="padding: 0 5px;">
+        <div class="z-depth-1 stat-card" style="background-color:#c62828;">
+          <div class="stat-icon">
+
+            <img alt="" src="assets/images/icons/dashboard/subscriptions.png">
+          </div>
+          <div class="stat-card-text">
+            <Span>Clients</Span>
+            <br>
+            <span>
+              {{ requestedCardLength }}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3" style="padding: 0 5px;">
+        <div class="z-depth-1 stat-card" style="background-color:#0288d1;">
+          <div class="stat-icon">
+            <!-- <fa-icon [icon]="faUser" style="font-size: 40px; float: left;"></fa-icon> -->
+            <img alt="" src="assets/images/icons/dashboard/agencies.png">
+          </div>
+          <div class="stat-card-text">
+            <span>Dossiers<br/>
+              En Attente / Traités</span>
+            <br>
+            <span>
+              {{ pendingCardLength}} / {{ retiredCardLength }}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3" style="padding: 0 5px;">
+        <div class="z-depth-1 stat-card" style="background-color:#43a047;">
+          <div class="stat-icon">
+            <!-- <fa-icon [icon]="faLock" style="font-size: 40px; float: left;"></fa-icon> -->
+            <img alt="" src="assets/images/icons/dashboard/collects.png">
+          </div>
+          <div class="stat-card-text">
+            <Span>Factures<br/>
+              Payées / Impayées</Span>
+            <br>
+            <span>
+              {{ collectsLength }}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3" style="padding: 0 5px;">
+        <div class="z-depth-1 stat-card" style="background-color:#33425b;">
+          <div class="stat-icon">
+            <!-- <fa-icon [icon]="faUser" style="font-size: 40px; float: left;"></fa-icon> -->
+            <img alt="" src="assets/images/icons/dashboard/atms.png">
+          </div>
+          <div class="stat-card-text">
+            <span>Navires</span>
+            <br>
+            <span>
+              {{ emfsLength }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="subscriptions">
+      <div class="chart">
+        <div class="block-label">
+          <b>Graphiques</b>
+          <fa-icon [icon]="faEllipsisH" style="float: right;"></fa-icon>
+        </div>
+        <div style="display: flex; width: 100%;">
+          <div class="chart-container">
+            <canvas [chartType]="cardChartType" [colors]="cardChartColors"
+                    [datasets]="cardChartData"
+                    [labels]="cardChartLabels" [legend]="cardChartLegend"
+                    [options]="cardChartOptions" [plugins]="cardChartPlugins"
+                    baseChart>
+            </canvas>
+            <!-- <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+              [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType">
+            </canvas> -->
+          </div>
+          <div class="history-container">
+            <div style="height: 120px">
+              <div class="block-header z-depth-1">
+                Dossiers créés
+              </div>
+              <table class="subscriptions-info">
+                <tr>
+                  <th>Cette Semaine:</th>
+                  <td>{{ currentWeekRequestCardLength }}</td>
+                </tr>
+                <tr>
+                  <th>Ce Mois:</th>
+                  <td>{{ this.currentMonthRequestCardLength }}</td>
+                </tr>
+                <tr>
+                  <th>Cette Année:</th>
+                  <td>{{ currentYearRequestCardsLength }}</td>
+                </tr>
+              </table>
+            </div>
+            <div style="height: 120px">
+              <div class="block-header z-depth-1">
+                {{ 'dash.clientsCreated' | translate }}
+              </div>
+              <table class="subscriptions-info">
+                <tr>
+                  <th>Cette Semaine:</th>
+                  <td>{{ currentWeekCardLength }}</td>
+                </tr>
+                <tr>
+                  <th>Ce Mois:</th>
+                  <td>{{ currentMonthCardLength }}</td>
+                </tr>
+                <tr>
+                  <th>Cette Année:</th>
+                  <td>{{ currentYearCardLength }}</td>
+                </tr>
+              </table>
+            </div>
+            <div style="height: 100px">
+              <div class="block-header z-depth-1">
+                {{ 'dash.naviresCreated' | translate }}
+              </div>
+              <table class="subscriptions-info">
+                <tr>
+                  <th>Cette Semaine:</th>
+                  <td>{{ currentWeekRetiredCards }}</td>
+                </tr>
+                <tr>
+                  <th>Ce Mois:</th>
+                  <td>{{ currentMonthRetiredCardlength }}</td>
+                </tr>
+                <tr>
+                  <th>Cette Année:</th>
+                  <td>{{ currentYearRetiredCardsLength }}</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="collects">
+      <div class="chart">
+        <div class="block-label">
+          {{ 'dash.expensesReport' | translate }}
+          <fa-icon [icon]="faEllipsisH" style="float: right;"></fa-icon>
+        </div>
+        <div style="display: flex; width: 100%;">
+          <div class="history-container">
+            <div style="height: 120px">
+              <div class="block-header z-depth-1">
+                Rapport de Compte
+              </div>
+              <table class="subscriptions-info">
+                <tr>
+                  <th>Cette Semaine:</th>
+                  <td>{{ currentWeekAccountLength }}</td>
+                </tr>
+                <tr>
+                  <th>Ce Mois:</th>
+                  <td>{{ currentMonthAccountLength }}</td>
+                </tr>
+                <tr>
+                  <th>Cette Année:</th>
+                  <td>{{ currentYearAccountLength }}</td>
+                </tr>
+              </table>
+            </div>
+            <div style="height: 120px">
+              <div class="block-header z-depth-1">
+                {{ 'dash.accountProvided' | translate }}
+              </div>
+              <table class="subscriptions-info">
+                <tr>
+                  <th>Cette Semaine:</th>
+                  <td>{{ currentWeekAccountsAppvLength }}</td>
+                </tr>
+                <tr>
+                  <th>Ce Mois:</th>
+                  <td>{{ currentMonthAccountsAppvLength }}</td>
+                </tr>
+                <tr>
+                  <th>Cette Année:</th>
+                  <td>{{ currentYearAccountsAppvLength }}</td>
+                </tr>
+              </table>
+            </div>
+            <div style="height: 120px">
+              <div class="block-header z-depth-1">
+                {{ 'dash.acP' | translate }}
+              </div>
+              <table class="subscriptions-info">
+                <tr>
+                  <th>Cette Semaine:</th>
+                  <td>{{ currentWeekAccountAmount | currency:'XAF' }}</td>
+                </tr>
+                <tr>
+                  <th>Ce Mois:</th>
+                  <td>{{ currentMonthAccountAmount | currency:'XAF' }}</td>
+                </tr>
+                <tr>
+                  <th>Cette Année:</th>
+                  <td>{{ currentYearAccountAmount | currency:'XAF' }}</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="chart-container">
+            <canvas [chartType]="accountChartType" [colors]="accountChartColors" [datasets]="accountChartData"
+                    [labels]="accountChartLabels" [legend]="accountChartLegend" [options]="accountChartOptions"
+                    [plugins]="accountChartPlugins" baseChart>
+            </canvas>
+            <!-- <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+                    [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType" [colors]="subscriptionsChartColors">
+                  </canvas> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
